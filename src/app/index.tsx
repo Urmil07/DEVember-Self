@@ -1,7 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { FlatList, SafeAreaView, StyleSheet, View } from "react-native";
-import DayListItem from "../components/core/DayListItem";
-import { useEffect } from "react";
+// import DayListItem from "../components/core/DayListItem";
+import DayListItem from "@components/core/DayListItem";
 import { Stack } from "expo-router";
 
 export default function HomeScreen() {
