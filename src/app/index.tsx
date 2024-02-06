@@ -8,6 +8,7 @@ import {
 } from "@expo-google-fonts/amatic-sc";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
+import { Stack } from "expo-router";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -32,6 +33,7 @@ export default function HomeScreen() {
   }
   return (
     <View style={styles.container}>
+      <Stack.Screen options={{ title: "DEVmeber" }} />
       <SafeAreaView />
       <FlatList
         data={days}
