@@ -8,7 +8,7 @@ type DayListItem = {
 const DayListItem = ({ day }: DayListItem) => {
   return (
     <View style={styles.box}>
-      <Text style={styles.text}>{day}</Text>
+      <Text style={styles.text}>{day + 1}</Text>
     </View>
   );
 };
@@ -29,5 +29,6 @@ const styles = StyleSheet.create({
   text: {
     color: "#9b4521",
     fontSize: 50,
+    fontFamily: "AmaticBold",
   },
 });
