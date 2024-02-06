@@ -1,13 +1,6 @@
 import { StatusBar } from "expo-status-bar";
-import {
-  ActivityIndicator,
-  FlatList,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
-import DayListItem from "./src/components/core/DayListItem";
+import { FlatList, SafeAreaView, StyleSheet, View } from "react-native";
+import DayListItem from "../components/core/DayListItem";
 import { Inter_900Black, useFonts } from "@expo-google-fonts/inter";
 import {
   AmaticSC_400Regular,
@@ -18,7 +11,7 @@ import { useEffect } from "react";
 
 SplashScreen.preventAutoHideAsync();
 
-export default function App() {
+export default function HomeScreen() {
   const days = Array.from(Array(24).keys());
   // .map((day, index) => index);
 
