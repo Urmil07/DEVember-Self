@@ -1,6 +1,12 @@
 import React, { useEffect } from "react";
 import { Slot, Stack } from "expo-router";
-import { Inter_900Black, useFonts } from "@expo-google-fonts/inter";
+import {
+  Inter_400Regular,
+  Inter_600SemiBold,
+  Inter_700Bold,
+  Inter_900Black,
+  useFonts,
+} from "@expo-google-fonts/inter";
 import {
   AmaticSC_400Regular,
   AmaticSC_700Bold,
@@ -11,7 +17,10 @@ SplashScreen.preventAutoHideAsync();
 
 const RootLayout = () => {
   const [fontsLoaded, fontError] = useFonts({
-    Inter: Inter_900Black,
+    Inter: Inter_400Regular,
+    InterBlack: Inter_900Black,
+    InterBold: Inter_700Bold,
+    InterSemi: Inter_600SemiBold,
     Amatic: AmaticSC_400Regular,
     AmaticBold: AmaticSC_700Bold,
   });
