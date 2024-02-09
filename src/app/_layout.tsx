@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Slot, Stack } from "expo-router";
 import {
   Inter_400Regular,
@@ -13,10 +13,15 @@ import {
 } from "@expo-google-fonts/amatic-sc";
 import * as SplashScreen from "expo-splash-screen";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import AnimatedSplashScreen from "@/components/day4/AnimatedSplashScreen";
+import Animated, { FadeIn } from "react-native-reanimated";
 
-SplashScreen.preventAutoHideAsync();
+// SplashScreen.preventAutoHideAsync();
 
 const RootLayout = () => {
+  const [AppReady, setAppReady] = useState(false);
+  const [SplashAnimationFinished, setSplashAnimationFinished] = useState(false);
+
   const [fontsLoaded, fontError] = useFonts({
     Inter: Inter_400Regular,
     InterBlack: Inter_900Black,
@@ -28,17 +33,32 @@ const RootLayout = () => {
 
   useEffect(() => {
     if (fontsLoaded || fontError) {
-      SplashScreen.hideAsync();
+      // SplashScreen.hideAsync();
+      setAppReady(true);
     }
   }, [fontError, fontsLoaded]);
 
-  if (!fontsLoaded && !fontError) {
-    return null;
+  const showAnimatedSplash = !AppReady || !SplashAnimationFinished;
+
+  console.log("splash", showAnimatedSplash);
+  if (showAnimatedSplash) {
+    return (
+      <AnimatedSplashScreen
+        onAnimationFinish={(isCancelled) => {
+          console.log("isCancelled", isCancelled);
+          if (!isCancelled) {
+            setSplashAnimationFinished(true);
+          }
+        }}
+      />
+    );
   }
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <Stack />
+      <Animated.View style={{ flex: 1 }} entering={FadeIn}>
+        <Stack />
+      </Animated.View>
     </GestureHandlerRootView>
   );
 };
