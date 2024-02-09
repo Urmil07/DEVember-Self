@@ -1,4 +1,4 @@
-import { Pressable, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
 import { Stack, router } from "expo-router";
 import { FontAwesome5 } from "@expo/vector-icons";
@@ -18,6 +18,7 @@ import Animated, {
   SlideOutLeft,
   SlideOutRight,
 } from "react-native-reanimated";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const onboardingSteps = [
   {
